@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://addons/qvoxel/scripts/voxel_world.gd" type="Script" id=1]
+[ext_resource path="res://addons/3d_ext/scripts/camera.gd" type="Script" id=2]
+[ext_resource path="res://scripts/env.gd" type="Script" id=3]
+[ext_resource path="res://scripts/debug_info.gd" type="Script" id=4]
+
+[sub_resource type="ProceduralSky" id=1]
+sun_latitude = 49.55
+sun_longitude = 21.82
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.6752 )
+far = 8192.0
+script = ExtResource( 2 )
+mode = 1
+
+[node name="QVoxelWorld" type="Spatial" parent="."]
+script = ExtResource( 1 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+script = ExtResource( 3 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="WorldEnvironment"]
+transform = Transform( -0.928356, -0.282847, 0.241148, 0, 0.648784, 0.760972, -0.371692, 0.706453, -0.602303, 0, 0, 0 )
+shadow_enabled = true
+directional_shadow_depth_range = 1
+directional_shadow_max_distance = 417.7
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+margin_right = 40.0
+margin_bottom = 14.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
