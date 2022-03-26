@@ -48,3 +48,5 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CSGBox" type="CSGBox" parent="."]
