@@ -1,8 +1,8 @@
+tool
 extends Node
 
-const VOXEL_SIZE = 16
-
 var block_type := {}
+var voxel_size = ProjectSettings.get_setting("qvoxel/voxel_size")
 
 func _init():
 	var type

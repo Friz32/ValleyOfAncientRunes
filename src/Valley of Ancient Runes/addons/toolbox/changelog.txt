@@ -1,3 +1,0 @@
-0.1
-- Debug: reload current scene
-- Debug: quit game

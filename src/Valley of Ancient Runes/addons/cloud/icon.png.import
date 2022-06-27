@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dirt.png-0782c6024ceb496e19a2208f06d4c0de.stex"
+path="res://.import/icon.png-44beeff088b5a15dae462cbe84b7d0bc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/blocks/dirt.png"
-dest_files=[ "res://.import/dirt.png-0782c6024ceb496e19a2208f06d4c0de.stex" ]
+source_file="res://addons/cloud/icon.png"
+dest_files=[ "res://.import/icon.png-44beeff088b5a15dae462cbe84b7d0bc.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

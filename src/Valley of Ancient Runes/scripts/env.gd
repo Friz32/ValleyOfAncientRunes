@@ -4,9 +4,6 @@ extends WorldEnvironment
 onready var dir_light = $DirectionalLight
 
 func _process(delta):
-	if dir_light != null:
-		dir_light.rotation_degrees = Vector3(
-			-environment.background_sky.sun_latitude,
-			180 - environment.background_sky.sun_longitude,
-			0
-		)
+	if environment.background_sky is ProceduralSky && dir_light != null:
+		dir_light.rotation_degrees.x = -environment.background_sky.sun_latitude
+		dir_light.rotation_degrees.y = 180 - environment.background_sky.sun_longitude

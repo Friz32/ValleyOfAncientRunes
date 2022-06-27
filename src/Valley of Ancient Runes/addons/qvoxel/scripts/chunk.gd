@@ -28,7 +28,7 @@ func create_mesh(mesh: ArrayMesh):
 				
 				match block_type.mesh_type:
 					QVoxelBlockType.MeshType.CUBE:
-						mesh_add_cube(surface, block_type, Vector3(x, y, z) * QVoxel.VOXEL_SIZE)
+						mesh_add_cube(surface, block_type, Vector3(x, y, z) * QVoxel.voxel_size)
 	
 	var i = 0
 	for mat in surface:
@@ -37,7 +37,7 @@ func create_mesh(mesh: ArrayMesh):
 		i += 1
 
 func mesh_add_cube(surface: Dictionary, block_type: QVoxelBlockType, pos: Vector3):
-	var s = QVoxel.VOXEL_SIZE
+	var s = QVoxel.voxel_size
 	var x = pos.x
 	var y = pos.y
 	var z = pos.z

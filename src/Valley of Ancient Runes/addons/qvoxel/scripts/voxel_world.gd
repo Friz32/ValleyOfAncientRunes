@@ -1,43 +1,27 @@
+tool
 class_name QVoxelWorld
-extends Spatial
+extends Node
 
-var mesh_inst = MeshInstance.new()
-var thread
+export var generate_mesh := false setget set_generate_mesh
 
 func _ready():
-	add_child(mesh_inst)
-	
-#	thread = Thread.new()
-#	thread.start(self, "update_mesh")
-	update_mesh()
+	if !Engine.is_editor_hint():
+		var thread = Thread.new()
+		thread.start(self, "generate_mesh")
 
-func update_mesh():
+func generate_mesh():
+	create_chunk()
+	create_chunk(Vector2(1, 0))
+
+func create_chunk(offset := Vector2(0, 0)):
 	var chunk = QVoxelChunk.new()
-	
-	var noise = OpenSimplexNoise.new()
-	noise.seed = randi()
-	noise.octaves = 4
-	noise.period = 20
-	noise.persistence = 0.6
-	
-	for x in 16:
-		for y in 32:
-			for z in 16:
-				if noise.get_noise_3d(x, y, z) > 0:
-					chunk.data[x][y][z].type = "voar:dirt"
-	
-#	for x in 16:
-#		for y in 32:
-#			for z in 16:
-#				chunk.data[x][y][z].type = "voar:dirt"
-#
-#	for i in 6:
-#		chunk.data[8][32 + i][8].type = "voar:wood"
-#
-#	for x in 5:
-#		for y in 5:
-#			for z in 3:
-#				chunk.data[8 - 2 + x][32 + 6 + z][8 - 2 + y].type = "voar:leaves"
-	
+	WorldGeneration.default(chunk, offset)
+	var mesh_inst = MeshInstance.new()
+	mesh_inst.translation.x = offset.x * chunk.size.x * QVoxel.voxel_size
+	mesh_inst.translation.z = offset.y * chunk.size.z * QVoxel.voxel_size
 	mesh_inst.mesh = ArrayMesh.new()
 	chunk.create_mesh(mesh_inst.mesh)
+	add_child(mesh_inst)
+
+func set_generate_mesh(value):
+	generate_mesh()

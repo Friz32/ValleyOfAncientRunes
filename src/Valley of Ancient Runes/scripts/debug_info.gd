@@ -1,6 +1,7 @@
 extends Label
 
 func _process(delta):
-	var t = ""
-	t += str(Engine.get_frames_per_second(), "\n")
-	text = t
+	var data = ""
+	data += "FPS: %s\n" % Engine.get_frames_per_second()
+	
+	text = data
