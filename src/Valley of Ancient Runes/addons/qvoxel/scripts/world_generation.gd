@@ -36,5 +36,6 @@ static func default(chunk: QVoxelChunk, offset: Vector2):
 	for x in size.x:
 		for z in size.z:
 			var h = noise.get_noise_2d(x + offset.x * size.x, z + offset.y * size.y)
-			for y in 4 + 16 * h:
+			for y in 4 + 40 * h:
 				chunk.data[x][y][z].type = "voar:dirt"
+				chunk.data[x][y + 1][z].type = "voar:grass_block"

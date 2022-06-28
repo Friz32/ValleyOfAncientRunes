@@ -28,7 +28,7 @@ func create_mesh(mesh: ArrayMesh):
 				
 				match block_type.mesh_type:
 					QVoxelBlockType.MeshType.CUBE:
-						mesh_add_cube(surface, block_type, Vector3(x, y, z) * QVoxel.voxel_size)
+						mesh_add_cube(surface, block_type, Vector3(x, y, z) * QVoxel.get_voxel_size())
 	
 	var i = 0
 	for mat in surface:
@@ -37,7 +37,7 @@ func create_mesh(mesh: ArrayMesh):
 		i += 1
 
 func mesh_add_cube(surface: Dictionary, block_type: QVoxelBlockType, pos: Vector3):
-	var s = QVoxel.voxel_size
+	var s = QVoxel.get_voxel_size()
 	var x = pos.x
 	var y = pos.y
 	var z = pos.z
@@ -62,7 +62,7 @@ func mesh_add_cube(surface: Dictionary, block_type: QVoxelBlockType, pos: Vector
 		)
 	
 	# -X
-	if block_x - 1 > 0 && !QVoxel.block_type[data[block_x - 1][block_y][block_z].type].cover[Vector3.RIGHT]:
+	if block_x > 0 && !QVoxel.block_type[data[block_x - 1][block_y][block_z].type].cover[Vector3.RIGHT]:
 		arrays = surface.get(block_type.cube_side_material[Vector3.LEFT], null)
 		if arrays == null:
 			arrays = create_mesh_arrays()
@@ -92,7 +92,7 @@ func mesh_add_cube(surface: Dictionary, block_type: QVoxelBlockType, pos: Vector
 		)
 	
 	# -Z
-	if block_z - 1 > 0 && !QVoxel.block_type[data[block_x][block_y][block_z - 1].type].cover[Vector3.BACK]:
+	if block_z > 0 && !QVoxel.block_type[data[block_x][block_y][block_z - 1].type].cover[Vector3.BACK]:
 		arrays = surface.get(block_type.cube_side_material[Vector3.FORWARD], null)
 		if arrays == null:
 			arrays = create_mesh_arrays()

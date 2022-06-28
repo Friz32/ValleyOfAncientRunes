@@ -48,7 +48,8 @@ script = ExtResource( 4 )
 [node name="DirectionalLight" type="DirectionalLight" parent="WorldEnvironment"]
 transform = Transform( -1, 5.01436e-08, -7.16126e-08, 0, 0.819151, 0.573577, 8.74228e-08, 0.573576, -0.819152, 0, 0, 0 )
 shadow_enabled = true
-directional_shadow_max_distance = 400.0
+directional_shadow_mode = 0
+directional_shadow_max_distance = 200.0
 
 [node name="Cloud" parent="." instance=ExtResource( 7 )]
 transform = Transform( 4000.02, 0, 0, 0, 4000.02, 0, 0, 0, 4000.02, 0, 32, 0 )
