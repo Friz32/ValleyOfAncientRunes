@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://addons/qvoxel/scripts/block/block_cube.gd" type="Script" id=1]
+[ext_resource path="res://resources/materials/dirt.tres" type="Material" id=2]
+[ext_resource path="res://resources/materials/grass_block_side.tres" type="Material" id=3]
+[ext_resource path="res://resources/materials/grass_block.tres" type="Material" id=4]
+
+[resource]
+script = ExtResource( 1 )
+id = "voar:grass_block"
+full_side = 63
+init = false
+material_left = ExtResource( 3 )
+material_right = ExtResource( 3 )
+material_top = ExtResource( 4 )
+material_bottom = ExtResource( 2 )
+material_front = ExtResource( 3 )
+material_back = ExtResource( 3 )

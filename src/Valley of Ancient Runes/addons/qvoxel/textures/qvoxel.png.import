@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/voxel_world_icon.png-eae4e15a729077e69793451a5a28a203.stex"
+path="res://.import/qvoxel.png-af077cfeeb2d5e99c5dc63058dce1160.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/qvoxel/textures/voxel_world_icon.png"
-dest_files=[ "res://.import/voxel_world_icon.png-eae4e15a729077e69793451a5a28a203.stex" ]
+source_file="res://addons/qvoxel/textures/qvoxel.png"
+dest_files=[ "res://.import/qvoxel.png-af077cfeeb2d5e99c5dc63058dce1160.stex" ]
 
 [params]
 

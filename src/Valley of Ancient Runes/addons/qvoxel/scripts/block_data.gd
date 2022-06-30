@@ -1,4 +1,4 @@
 class_name QVoxelBlockData
-extends Resource
+extends Reference
 
-var type := "engine:none"
+var id := "engine:none"
